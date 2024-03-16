@@ -1,5 +1,5 @@
 import { Mina, PrivateKey,UInt64} from "o1js"; 
-import {AdvertiseXTokenSales} from "../AdvertiseXTokenSales.js";
+import {AdvertiseXPayment} from "../AdvertiseXPayment.js";
 import * as dotenv from "dotenv"; 
 dotenv.config({});
 // set Mina instance
@@ -10,10 +10,10 @@ let senderKey = PrivateKey.fromBase58(`${process.env.OWNER_PRIVATE_KEY}`);
 let senderAccount = senderKey.toPublicKey();
 
 const zkAppPublicKey = PrivateKey.fromBase58("EKEop2zppg1z4F2zzyVe1zo2vtysXoN66rsmqYJjKBsoxyr8ctN9") 
-const zkapp = new AdvertiseXTokenSales(zkAppPublicKey.toPublicKey());
+const zkapp = new AdvertiseXPayment(zkAppPublicKey.toPublicKey());
 
 async function createPayment(amount: number){
-  await AdvertiseXTokenSales.compile()
+  await AdvertiseXPayment.compile()
   const tx = await Mina.transaction({sender: senderAccount, fee:100000000}, () => {
       zkapp.createPayment(UInt64.from(amount * 1e9))
     });
@@ -27,7 +27,7 @@ async function createPayment(amount: number){
 }
 
 async function withDraw(amount: number){
-  await AdvertiseXTokenSales.compile()
+  await AdvertiseXPayment.compile()
   // create the transaction, add proofs and signatures
   const tx = await Mina.transaction({sender: senderAccount, fee:100000000}, () => {
       zkapp.withDraw(UInt64.from(amount * 1e9))
