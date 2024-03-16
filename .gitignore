@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Logs
 logs
 *.log
@@ -128,3 +129,18 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+=======
+# NodeJS
+node_modules
+build
+coverage
+
+# Editor
+.vscode
+
+# System
+.DS_Store
+
+# Never commit keys to Git!
+keys
+>>>>>>> 85e50a7 (Init commit)
