@@ -1,19 +1,14 @@
 import {
-  Field,
   SmartContract,
   state,
   State,
   method,
-  MerkleWitness,
   PublicKey,
   Struct,
-  UInt32,
-  Poseidon,
   UInt64,
   AccountUpdate,
 } from 'o1js';
 
-class MerkleWitness32 extends MerkleWitness(32) {}
 class Account extends Struct({
   publicKey: PublicKey,
   points: UInt64,
