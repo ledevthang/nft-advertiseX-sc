@@ -11,6 +11,9 @@ import {
     Field,
   } from 'o1js';
   
+  /**
+   * This contract implememt fungible token on Mina network
+   */
   export class AdvertiseXToken extends SmartContract {
     @state(Field) symbol = State<Field>();
     @state(UInt64) decimals = State<UInt64>();
@@ -37,7 +40,12 @@ import {
     onlyOwner() {
       this.owner.getAndAssertEquals().assertEquals(this.sender);
     }
-  
+    
+    /**
+     * Mint token to account receiver , only admin can mint 
+     * @param receiverAddress Account recieve AdvertiseXToken
+     * @param amount Amount mint 
+     */
     @method mint(receiverAddress: PublicKey, amount: UInt64) {
       this.onlyOwner();
       const maxSupply = this.maxSupply.getAndAssertEquals();
@@ -55,7 +63,12 @@ import {
   
       this.totalAmountInCirculation.set(newCirculatingSupply);
     }
-  
+    
+     /**
+     * Burn token to account receiver , only admin can burn 
+     * @param burnerAddress Account burn AdvertiseXToken
+     * @param amount Amount burn 
+     */
     @method burn(burnerAddress: PublicKey, amount: UInt64) {
       this.onlyOwner();
       const maxSupply = this.maxSupply.getAndAssertEquals();
@@ -71,7 +84,13 @@ import {
   
       this.totalAmountInCirculation.set(newCirculatingSupply);
     }
-  
+    
+    /**
+     * Transfer token tfrom sender account to receiver account
+     * @param senderAddress Sender account 
+     * @param receiverAddress Receiver account
+     * @param amount Amount transfer 
+     */
     @method transfer(
       senderAddress: PublicKey,
       receiverAddress: PublicKey,
@@ -79,7 +98,11 @@ import {
     ) {
       this.token.send({ from: senderAddress, to: receiverAddress, amount });
     }
-  
+    
+    /**
+     * Get current balance
+     * @param address Account to get balance
+     */
     @method getBalance(address: PublicKey): UInt64 {
       let accountUpdate = AccountUpdate.create(address, this.token.id);
       let balance = accountUpdate.account.balance.get();

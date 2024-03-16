@@ -39,6 +39,7 @@
     "o1js": "0.17.*"
   },
   "dependencies": {
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "minanft": "^1.7.5"
   }
 }
