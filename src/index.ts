@@ -1,3 +1,3 @@
-import { Add } from './Add.js';
+import { AdvertiseXTokenSales } from './AdvertiseXTokenSales.js';
 
-export { Add };
+export { AdvertiseXTokenSales };

@@ -1,4 +1,30 @@
 {
   "version": 1,
-  "deployAliases": {}
+  "deployAliases": {
+    "berkeley": {
+      "networkId": "testnet",
+      "url": "https://proxy.berkeley.minaexplorer.com/graphql",
+      "keyPath": "keys/berkeley.json",
+      "feepayerKeyPath": "/home/quy/.cache/zkapp-cli/keys/ekeiv9htgnu528tkmc2vngtq1nsir2ogffulgmawbzlm6u61w4do.json",
+      "feepayerAlias": "ekeiv9htgnu528tkmc2vngtq1nsir2ogffulgmawbzlm6u61w4do",
+      "fee": "0.1"
+    },
+    "learn": {
+      "networkId": "testnet",
+      "url": "https://proxy.berkeley.minaexplorer.com/graphql",
+      "keyPath": "keys/learn.json",
+      "feepayerKeyPath": "/home/quy/.cache/zkapp-cli/keys/ekeiv9htgnu528tkmc2vngtq1nsir2ogffulgmawbzlm6u61w4do.json",
+      "feepayerAlias": "ekeiv9htgnu528tkmc2vngtq1nsir2ogffulgmawbzlm6u61w4do",
+      "fee": "0.1"
+    },
+    "test_net": {
+      "networkId": "testnet",
+      "url": "https://proxy.berkeley.minaexplorer.com/graphql",
+      "keyPath": "keys/test_net.json",
+      "feepayerKeyPath": "/home/quy/.cache/zkapp-cli/keys/ekdpzsbnfpjijcwglpmznkvnhde5svmffhyr4jhthbabppcnuyhh.json",
+      "feepayerAlias": "ekdpzsbnfpjijcwglpmznkvnhde5svmffhyr4jhthbabppcnuyhh",
+      "fee": "0.1",
+      "smartContract": "AdvertiseXTokenSales"
+    }
+  }
 }
